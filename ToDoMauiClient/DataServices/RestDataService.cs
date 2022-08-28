@@ -13,9 +13,9 @@ namespace ToDoMauiClient.DataServices
         private string _url;
         private JsonSerializerOptions _jsonSerializerOptions;
 
-        public RestDataService()
-        {
-            _httpClient = new HttpClient();
+        public RestDataService(HttpClient httpClient)
+        {            
+            _httpClient = httpClient;
             _baseAddress = DeviceInfo.Platform == DevicePlatform.Android 
                 ? "http://10.0.2.2:5266" 
                 : "https://localhost:7266";

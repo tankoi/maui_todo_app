@@ -1,4 +1,5 @@
 ﻿using ToDoMauiClient.DataServices;
+using ToDoMauiClient.Pages;
 
 namespace ToDoMauiClient
 {
@@ -15,9 +16,11 @@ namespace ToDoMauiClient
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<IRestDataService, RestDataService>();
+            //builder.Services.AddSingleton<IRestDataService, RestDataService>();
+            builder.Services.AddHttpClient<IRestDataService, RestDataService>();
 
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<ManageToDoPage>();
 
             return builder.Build();
         }
